@@ -49,15 +49,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Main Structural Titles - Optimized for Google/Safari indexing
+# Main Structural Titles - CLEANED: All references to "AI" removed for executive aesthetic
 st.title("LAW OF AFRICA INTELLIGENCE ENGINE")
 st.write("### Welcome to the Official LAW OF AFRICA INTELLIGENCE ENGINE Portal")
-st.write("#### *Premium Pan-African Legal AI Matrix, OHADA Law Brief Generator, and Constitutional History Index.*")
+st.write("#### *Premium Pan-African Legal Research Matrix, OHADA Law Brief Generator, and Constitutional History Index.*")
 st.success("⚡ **Stop spending 10 hours researching OHADA law. Get a comprehensive, highly accurate legal brief in 10 seconds.**")
 
 with st.expander("🛡️ Data Privacy, Confidentiality & Compliance Framework"):
     st.caption("""
-    **Law of Africa Privacy Notice:** All queries processed through this intelligence engine are protected under strict end-to-end cloud encryption. In compliance with pan-African data protection regulations and international privacy protocols, your legal research inputs are entirely isolated, are never cached for external public AI training, and remain entirely confidential to your licensed subscriber session.
+    **Law of Africa Privacy Notice:** All queries processed through this intelligence engine are protected under strict end-to-end cloud encryption. In compliance with pan-African data protection regulations and international privacy protocols, your legal research inputs are entirely isolated, are never cached for external public system training, and remain entirely confidential to your licensed subscriber session.
     """)
 st.divider()
 
@@ -103,7 +103,6 @@ except Exception as e:
     st.stop()
 
 # PERSISTENT SESSION TRACKING & LOGIN REMEMBER LAYER
-# FIX: Updated to use the clean modern stable st.query_params library call
 if "logged_in_user" not in st.session_state:
     st.session_state.logged_in_user = st.query_params.get("user", None)
 if "free_queries_used" not in st.session_state:
@@ -111,7 +110,7 @@ if "free_queries_used" not in st.session_state:
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [] 
 
-# 4. BACKGROUND VAULT KEY EXTRACTION FOR AI ARCHITECTURE
+# 4. BACKGROUND VAULT KEY EXTRACTION FOR SYSTEM ARCHITECTURE
 try:
     groq_api_key = st.secrets["GROQ_API_KEY"]
     ai_client = Groq(api_key=groq_api_key)
@@ -242,7 +241,7 @@ if submit_button and user_input.strip() != "":
                     {
                         "role": "system", 
                         "content": (
-                            "You are the premium Law of Africa Intelligence Engine, an elite expert trained in "
+                            "You are the premium Law of Africa Intelligence Engine, an elite expert system trained in "
                             "African legal frameworks, constitutional architectures, statutory interpretations, case law history, "
                             "and commercial OHADA guidelines. Always provide completely finished, exhaustive legal responses "
                             "divided into neat sections."
