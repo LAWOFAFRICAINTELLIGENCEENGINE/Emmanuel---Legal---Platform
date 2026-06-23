@@ -17,7 +17,7 @@ st.divider()
 #
 
 def trigger_admin_alert(event_type, target_user):
-    Sends a robust, formatted security notification email straight to your phone. 
+    Sends robust, formatted security notification email straight to your phone. 
     try:
         admin_recipient = st.secrets["ADMIN_EMAIL"]
         system_sender = st.secrets["SYSTEM_SENDER_EMAIL"]
