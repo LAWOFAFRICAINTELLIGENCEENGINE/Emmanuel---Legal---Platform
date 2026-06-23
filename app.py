@@ -136,7 +136,7 @@ except Exception:
     st.stop()
 
 # ADMINISTRATIVE ACCESS CONSTANTS
-YOUR_WHATSAPP_NUMBER = "234XXXXXXXXXX"  # Update with your active WhatsApp contact number
+YOUR_WHATSAPP_NUMBER = "2349125333574"  # Update with your active WhatsApp contact number
 ADMIN_EMAIL_ADDRESS = st.secrets.get("ADMIN_EMAIL", "paulinusemmanuel634@gmail.com")
 
 # 5. USER SEGMENTATION & ACCESS GATE (WITH REMEMBER SYSTEM)
