@@ -142,7 +142,7 @@ if user_input := st.chat_input("Enter your premium legal query here..."):
         
         try:
             chat_completion = ai_client.chat.completions.create(
-                model="llama-3.3-70b-versatitle",
+                model="llama-3.3-70b-versatile",
                 messages=[
                     {"role": "system", "content": "You are the premium Law of Africa Intelligence Engine, an elite expert AI trained in African legal frameworks, constitutional architectures, statutory interpretations, case law history, and commercial OHADA guidelines. Provide exhaustive, structured legal briefs with clear sections."},
                     {"role": "user", "content": user_input}
