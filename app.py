@@ -14,7 +14,7 @@ st.success("⚡ **Stop spending 10 hours researching OHADA law. Get a comprehens
 st.divider()
 
 # 2. EMAIL NOTIFICATION ALERTS ENGINE (SMTP ENTERPRISE GATEWAY)
-#def trigger_admin_alert(event_type, target_user):
+def trigger_admin_alert(event_type, target_user):
     try:
         admin_recipient = st.secrets["ADMIN_EMAIL"]
         system_sender = st.secrets["SYSTEM_SENDER_EMAIL"]
