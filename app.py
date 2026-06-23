@@ -5,19 +5,21 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from groq import Groq
+import urllib.parse
 
-# 1. HARDENED ENTERPRISE CONFIGURATION & PRIVACY COMPLIANCE
+# 1. HARDENED ENTERPRISE CONFIGURATION & SEARCH ENGINE OPTIMIZATION
+# Setting page_title enforces the text that appears on Google Search Results and browser tabs!
 st.set_page_config(
-    page_title="Law of Africa", 
+    page_title="LAW OF AFRICA INTELLIGENCE ENGINE - Premium Legal AI Portal", 
     page_icon="⚖️", 
     layout="centered",
     initial_sidebar_state="expanded"
 )
 
-# Advanced CSS Injection to match your exact circular send icon styling
+# Advanced Layout & Input Elements CSS Styling
 st.markdown("""
     <style>
-    /* Styling for the horizontal input row layout */
+    /* Styling for the horizontal mobile messaging input layout row */
     .chat-row-container {
         display: flex;
         align-items: center;
@@ -25,7 +27,7 @@ st.markdown("""
         width: 100%;
     }
     
-    /* Make the button look exactly like the circular blue button with arrow */
+    /* Premium Sky Blue Circular Message Send Action Button */
     div.stButton > button:first-child {
         background-color: #A0C3FF !important;
         color: #1E293B !important;
@@ -49,15 +51,17 @@ st.markdown("""
         background-color: #B2D2FF !important;
     }
     
-    /* Smooth out container layouts */
+    /* Smooth column container normalization */
     [data-testid="stHorizontalBlock"] {
         align-items: center !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Enterprise Header and Security Notice
-st.title("Law of Africa: Intelligence Engine")
+# Main Structural Titles - Search robots favor text under st.title/st.write for snippets!
+st.title("LAW OF AFRICA INTELLIGENCE ENGINE")
+st.write("### Welcome to the Official LAW OF AFRICA INTELLIGENCE ENGINE Portal")
+st.write("#### *Premium Pan-African Legal AI Matrix, OHADA Law Brief Generator, and Constitutional History Index.*")
 st.success("⚡ **Stop spending 10 hours researching OHADA law. Get a comprehensive, highly accurate legal brief in 10 seconds.**")
 
 with st.expander("🛡️ Data Privacy, Confidentiality & Compliance Framework"):
@@ -66,7 +70,7 @@ with st.expander("🛡️ Data Privacy, Confidentiality & Compliance Framework")
     """)
 st.divider()
 
-# 2. EMAIL NOTIFICATION ALERTS ENGINE (SMTP ENTERPRISE GATEWAY)
+# 2. FIXED EMAIL NOTIFICATION ALERTS ENGINE (SMTP ENTERPRISE GATEWAY)
 def trigger_admin_alert(event_type, target_user):
     try:
         admin_recipient = st.secrets["ADMIN_EMAIL"]
@@ -123,6 +127,10 @@ except Exception:
     st.error("System Status: Security Vault Keys Missing. Please check your system settings.")
     st.stop()
 
+# YOUR WHATSAPP ADMINISTRATIVE LINK ROUTER
+YOUR_WHATSAPP_NUMBER = "234XXXXXXXXXX"  # Change this placeholder to your actual WhatsApp phone number with country code!
+ADMIN_EMAIL_ADDRESS = st.secrets.get("ADMIN_EMAIL", "paulinusemmanuel634@gmail.com")
+
 # 5. USER SEGMENTATION & ACCESS GATE (WITH REMEMBER SYSTEM)
 if st.session_state.logged_in_user is None:
     st.subheader("🔐 Secure User Portal")
@@ -146,6 +154,10 @@ if st.session_state.logged_in_user is None:
                 st.rerun()
             else:
                 st.error("Invalid username or password credentials.")
+                
+    st.markdown("---")
+    st.caption("Don't have an account or having registration layout issues?")
+    st.link_button("💬 Chat with Admin Support", f"https://wa.me/{YOUR_WHATSAPP_NUMBER}")
     st.stop()
 
 # 6. APP CONTENT AREA (UNLOCKED UPON SUCCESSFUL LOGIN)
@@ -154,6 +166,9 @@ user_row = db_df[db_df['username'].astype(str) == current_user]
 user_status = user_row['status'].values[0] if not user_row.empty else "Free Trial"
 
 is_premium_user = (user_status == "Premium" or current_user == "odogwucent")
+
+encoded_text = urllib.parse.quote(f"Hello, I am using the Law of Africa Engine as user [{current_user}]. I would like to make a payment and upgrade to the Premium Tier.")
+whatsapp_pay_url = f"https://wa.me/{YOUR_WHATSAPP_NUMBER}?text={encoded_text}"
 
 # 7. SYSTEM PAYWALL & SUBSCRIPTION ACCESS MANAGEMENT (STRICT 3-QUERY LIMIT)
 MAX_FREE_QUERIES = 3
@@ -164,7 +179,10 @@ if not is_premium_user and st.session_state.free_queries_used >= MAX_FREE_QUERIE
     region = st.radio("Where are you currently practicing law?", ["Select Region...", "Within Africa ($100/mo)", "International (Outside Africa) ($200/mo)"])
     
     if region != "Select Region...":
-        st.info(f"🔑 Billing System Notice: Payment gateway request dispatched for {region}. Please contact support or your account administrator to securely activate your database tier profile.")
+        st.info(f"🔑 Billing System Notice: Payment gateway request dispatched for {region}.")
+        st.markdown("### ⚡ Fast-Track Your Activation:")
+        st.write("Click the button below to text the Admin on WhatsApp directly to process your payment and instantly unlock your profile:")
+        st.link_button("🟢 Text Admin on WhatsApp to Pay", whatsapp_pay_url)
     
     if st.button("Log Out 🚪", use_container_width=True):
         st.experimental_set_query_params()
@@ -172,13 +190,20 @@ if not is_premium_user and st.session_state.free_queries_used >= MAX_FREE_QUERIE
         st.rerun()
     st.stop()
 
-# Profile Tier Metadata Banner
+# Profile Tier Metadata Sidebar Banner
 st.sidebar.markdown(f"👤 **Active Profile:** `{current_user}`")
 st.sidebar.markdown(f"💼 **Account Tier:** `{user_status.upper()}`")
 if not is_premium_user:
     st.sidebar.markdown(f"📊 **Free Trials Used:** `{st.session_state.free_queries_used} / {MAX_FREE_QUERIES}`")
 
-# Sidebar Actions
+# SIDEBAR ADMINISTRATIVE SUPPORT HUB
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 📞 Help & Account Support")
+st.sidebar.write("Need an account upgrade, run into issues, or have payment billing questions?")
+st.sidebar.link_button("💬 Chat with Admin via WhatsApp", whatsapp_pay_url)
+st.sidebar.link_button("✉️ Send Support Email", f"mailto:{ADMIN_EMAIL_ADDRESS}?subject=Law%20of%20Africa%20Support%20Request&body=User:%20{current_user}")
+
+st.sidebar.markdown("---")
 if st.sidebar.button("Log Out 🚪", use_container_width=True):
     st.experimental_set_query_params()
     st.session_state.logged_in_user = None
@@ -189,7 +214,6 @@ if st.sidebar.button("Reset Application Memory 🔄", use_container_width=True):
     st.session_state.clear()
     st.rerun()
 
-# Display ongoing interaction history layout UI frames
 for chat in st.session_state.chat_history:
     with st.chat_message(chat["role"]):
         st.markdown(chat["content"])
@@ -207,10 +231,8 @@ with input_col:
     )
 
 with button_col:
-    # Renders the exact blue messaging bubble with the directional arrow and custom spark
     submit_button = st.button("➤✨")
 
-# Handle response loop when submission triggers
 if submit_button and user_input.strip() != "":
     st.session_state.chat_history.append({"role": "user", "content": user_input})
     
@@ -249,5 +271,4 @@ if submit_button and user_input.strip() != "":
                 
         except Exception as e:
             response_placeholder.error(f"⚠️ Generation Error: Engine computation timeout. Details: {str(e)}")
-
-#
+##
